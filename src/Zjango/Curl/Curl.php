@@ -149,6 +149,7 @@ class Curl {
        if (is_array($data) || is_object($data))
 		{
 			$data = http_build_query($data);
+	       		$data = urldecode($data)
 		}
         $this->setopt(CURLOPT_POSTFIELDS, $data);
         return $this->sendRequest();
